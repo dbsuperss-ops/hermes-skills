@@ -19,7 +19,7 @@ cd /mnt/c/Users/dbsup/source/repos/ActivityMonitor
 /mnt/c/Program\ Files/dotnet/dotnet build -c Release
 
 # 2. 실행 (백그라운드)
-powershell.exe -Command "Start-Process -WindowStyle Hidden -FilePath 'C:\Users\dbsup\source\repos\ActivityMonitor\bin\Release\net10.0\ActivityMonitor.exe'"
+powershell.exe -Command "Start-Process -WindowStyle Hidden -FilePath 'C:\Users\dbsup\source\repos\ActivityMonitor\bin\Release\net10.0-windows\ActivityMonitor.exe'"
 ```
 
 ## 확인
@@ -44,7 +44,7 @@ powershell.exe -Command "Stop-Process -Name ActivityMonitor -Force"
 powershell.exe -Command @'
 $wshell = New-Object -ComObject WScript.Shell
 $shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\ActivityMonitor.lnk")
-$shortcut.TargetPath = "C:\Users\dbsup\source\repos\ActivityMonitor\bin\Release\net10.0\ActivityMonitor.exe"
+$shortcut.TargetPath = "C:\Users\dbsup\source\repos\ActivityMonitor\bin\Release\net10.0-windows\ActivityMonitor.exe"
 $shortcut.Save()
 '@
 ```
