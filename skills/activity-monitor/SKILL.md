@@ -15,18 +15,18 @@ WSL 터미널에서 실행:
 
 ```bash
 # 1. Windows .NET SDK로 빌드
-cd /mnt/c/Users/thgo/source/repos/ActivityMonitor
+cd /mnt/c/Users/dbsup/source/repos/ActivityMonitor
 /mnt/c/Program\ Files/dotnet/dotnet build -c Release
 
 # 2. 실행 (백그라운드)
-powershell.exe -Command "Start-Process -WindowStyle Hidden -FilePath 'C:\Users\thgo\source\repos\ActivityMonitor\bin\Release\net10.0-windows\ActivityMonitor.exe'"
+powershell.exe -Command "Start-Process -WindowStyle Hidden -FilePath 'C:\Users\dbsup\source\repos\ActivityMonitor\bin\Release\net10.0\ActivityMonitor.exe'"
 ```
 
 ## 확인
 
 ```bash
 # 로그 폴더 확인
-ls -la /mnt/c/Users/thgo/activity-logs/
+ls -la /mnt/c/Users/dbsup/activity-logs/
 
 # 프로세스 확인
 powershell.exe -Command "Get-Process ActivityMonitor -ErrorAction SilentlyContinue | Format-Table Id, ProcessName"
@@ -44,7 +44,7 @@ powershell.exe -Command "Stop-Process -Name ActivityMonitor -Force"
 powershell.exe -Command @'
 $wshell = New-Object -ComObject WScript.Shell
 $shortcut = $wshell.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\ActivityMonitor.lnk")
-$shortcut.TargetPath = "C:\Users\thgo\source\repos\ActivityMonitor\bin\Release\net10.0-windows\ActivityMonitor.exe"
+$shortcut.TargetPath = "C:\Users\dbsup\source\repos\ActivityMonitor\bin\Release\net10.0\ActivityMonitor.exe"
 $shortcut.Save()
 '@
 ```
